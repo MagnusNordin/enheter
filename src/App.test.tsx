@@ -82,7 +82,13 @@ describe('App', () => {
       await userEvent.keyboard('{Enter}');
     }
 
-    expect(screen.getByRole('heading', { level: 1, name: '2/3' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: '2/3' })).toHaveFocus();
+    expect(screen.getByText('Resultat · liter')).toBeInTheDocument();
+    expect(screen.getAllByRole('listitem').map((li) => li.textContent)).toEqual([
+      'Tal 1: rätt',
+      'Tal 2: fel',
+      'Tal 3: rätt',
+    ]);
     await userEvent.click(screen.getByRole('button', { name: 'klar' }));
 
     expect(screen.getByText('Bäst 2/3 · Senast 2/3')).toBeInTheDocument();

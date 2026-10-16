@@ -13,7 +13,7 @@ const some: FamilyResults = {
 
 describe('resultsText', () => {
   it('shows best and last', () => {
-    expect(resultsText(some)).toBe('Bäst 28/30 · Senast 24/30');
+    expect(resultsText(some)).toBe('Bäst\u00a028/30 · Senast\u00a024/30');
   });
 
   it('is null until a round is played', () => {
@@ -69,6 +69,6 @@ describe('UnitCard', () => {
   it('shows and describes the card with stored results', () => {
     render(<UnitCard family={FAMILIES.gram} results={some} onPick={() => {}} />);
     expect(screen.getByText('Bäst 28/30 · Senast 24/30')).toBeInTheDocument();
-    expect(screen.getByRole('button')).toHaveAccessibleDescription('Bäst 28/30 · Senast 24/30');
+    expect(screen.getByRole('button')).toHaveAccessibleDescription(resultsText(some)!);
   });
 });

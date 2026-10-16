@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import styles from './App.module.css';
 import { QuizScreen } from './components/QuizScreen/QuizScreen.tsx';
+import { ResultScreen } from './components/ResultScreen/ResultScreen.tsx';
 import { SettingsDialog } from './components/SettingsDialog/SettingsDialog.tsx';
 import { StartScreen } from './components/StartScreen/StartScreen.tsx';
 import type { Rng } from './domain/random.ts';
@@ -37,17 +37,15 @@ export default function App({ rng }: AppProps) {
     );
   }
 
-  if (quiz.state.screen === 'result') {
-    // Temporary until the result screen lands in phase 7.
+  if (quiz.state.screen === 'result' && quiz.state.family) {
     return (
-      <main className={styles.placeholder}>
-        <h1 className={styles.placeholderTitle}>
-          {quiz.state.score}/{quiz.state.total}
-        </h1>
-        <button type="button" className={styles.placeholderButton} onClick={quiz.exit}>
-          klar
-        </button>
-      </main>
+      <ResultScreen
+        family={quiz.state.family}
+        score={quiz.state.score}
+        total={quiz.state.total}
+        history={quiz.state.history}
+        onDone={quiz.exit}
+      />
     );
   }
 
