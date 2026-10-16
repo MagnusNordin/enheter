@@ -8,12 +8,16 @@
 }
 
 .question {
+  /* 96px as designed at 1024px; shrinks on narrower tablets so the widest
+     question ("80 mm = [   ] cm", about 9.5em) still fits beside the 96px
+     of page padding and a 16px scrollbar. Sizes below are in em so the
+     whole row scales together. */
+  font-size: min(96px, calc((100vw - 112px) / 9.5));
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 0.2917em;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 96px;
   line-height: 1;
 }
 
@@ -21,7 +25,7 @@
 .answerRow {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 0.2917em;
   white-space: nowrap;
 }
 
@@ -30,17 +34,18 @@
 }
 
 .input {
-  width: 300px;
-  height: 124px;
-  padding: 0 20px;
-  border-radius: var(--radius-input);
+  /* em here is the input's own font size (84px at full size). */
+  width: 3.5714em;
+  height: 1.4762em;
+  padding: 0 0.2381em;
+  border-radius: 0.2857em;
   border: 4px solid var(--ink);
   background: var(--surface);
   color: var(--ink);
   text-align: center;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 84px;
+  font-size: 0.875em;
   outline-offset: 4px;
 }
 

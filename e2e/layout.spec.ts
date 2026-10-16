@@ -56,3 +56,29 @@ test('no screen scrolls sideways, even with long rounds', async ({ page }) => {
   await playRound(page, 'meter', [true, false, true]);
   await expectNoHorizontalScroll(page);
 });
+
+test('the widest question and ladder fit without scrolling', async ({ page }) => {
+  await card(page, 'meter').click();
+  // Questions are random, so put the widest possible text in place
+  // ("80 mm = [ ] cm", and the five-unit meter ladder is already showing).
+  await page.evaluate(() => {
+    const row = document.querySelector('form')!.firstElementChild!;
+    const [prompt, answerRow] = [...row.children];
+    prompt!.firstElementChild!.textContent = '80 mm';
+    answerRow!.lastElementChild!.textContent = 'cm';
+  });
+  await expectNoHorizontalScroll(page);
+  const widths = await page.evaluate(() => {
+    const main = document.querySelector('main')!;
+    const style = getComputedStyle(main);
+    const inner = main.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    const width = (el: Element) => el.getBoundingClientRect().width;
+    return {
+      inner,
+      question: width(document.querySelector('form')!.firstElementChild!),
+      ladder: width(document.querySelector('ol')!),
+    };
+  });
+  expect(widths.question).toBeLessThanOrEqual(widths.inner);
+  expect(widths.ladder).toBeLessThanOrEqual(widths.inner);
+});

@@ -235,6 +235,15 @@ Each phase ends green (lint + tests) and is one commit, or a small PR once the r
 | 8   | App integration test, axe checks, Playwright e2e                                                                                    | coverage threshold met; e2e green on both viewports |
 | 9   | Visual pass against the design at 1024×768 and 390×844, README, final deploy                                                        | live app matches the canvas                         |
 
+**Status (2026-10-16): all nine phases are done.** The app is live at https://magnusnordin.github.io/enheter/.
+
+Changes from the plan made along the way:
+
+- **hg → g is ×100**, not ×10 as in the design prototype. The families test checks factors against the old `parts.json`. The design canvas was corrected too.
+- **Start cards** use their visible text as the button name (WCAG 2.5.3, found by axe) instead of an `aria-label`.
+- **Phone ladder**: factor labels sit above the chips so "×1 000" doesn't cover the units.
+- **Tablets (720–1023px)** get the desktop layout with the question row and ladder scaling down to fit. The design only covers 1024 and 390, and at 768px the widest question overflowed. Playwright now also runs a 768×1024 tablet project.
+
 ## 11. Open points for later (not in scope now)
 
 - PWA/offline install for tablets.

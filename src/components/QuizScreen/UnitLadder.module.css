@@ -17,12 +17,16 @@
 }
 
 .row {
+  /* Chip text is 32px as designed at 1024px; shrinks on narrower tablets so
+     the five meter units (about 24em) still fit beside the page padding and
+     a scrollbar. Chip and step sizes are in em so the ladder scales together. */
+  font-size: min(32px, calc((100vw - 112px) / 24.2));
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   align-items: flex-start;
-  gap: 6px;
+  gap: 0.1875em;
 }
 
 .unit {
@@ -34,16 +38,16 @@
 }
 
 .chip {
-  min-width: 76px;
-  height: 76px;
-  padding: 0 16px;
-  border-radius: 18px;
+  min-width: 2.375em;
+  height: 2.375em;
+  padding: 0 0.5em;
+  border-radius: 0.5625em;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 32px;
+  font-size: 1em;
   background: var(--surface);
   border: 2px solid var(--line);
   color: var(--muted);
@@ -72,8 +76,8 @@
 }
 
 .step {
-  height: 76px;
-  min-width: 72px;
+  height: 2.375em;
+  min-width: 2.25em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,14 +110,14 @@
 }
 
 .bar {
-  width: 52px;
+  width: 1.625em;
   height: 2px;
   border-radius: 1px;
   background: currentColor;
 }
 
 .step[data-active='true'] .bar {
-  width: 72px;
+  width: 2.25em;
   height: 4px;
   border-radius: 2px;
 }
