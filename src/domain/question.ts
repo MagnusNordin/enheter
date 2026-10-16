@@ -46,7 +46,11 @@ function rollQuestion(family: Family, rng: Rng): Question {
  * A question converting a value to the neighbouring unit, one step up or
  * down. Never the same question as `previous`.
  */
-export function makeQuestion(family: Family, rng: Rng = defaultRng, previous?: Question): Question {
+export function makeQuestion(
+  family: Family,
+  rng: Rng = defaultRng,
+  previous?: Question | null,
+): Question {
   let question = rollQuestion(family, rng);
   for (let i = 0; previous && sameQuestion(question, previous) && i < MAX_REROLLS; i++) {
     question = rollQuestion(family, rng);
