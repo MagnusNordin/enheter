@@ -1,0 +1,20 @@
+/* Sets --tint and --deep for anything inside a family's data-family scope. */
+[data-family] {
+  --tint: var(--surface);
+  --deep: var(--ink);
+}
+
+[data-family='gram'] {
+  --tint: var(--gram-tint);
+  --deep: var(--gram-deep);
+}
+
+[data-family='meter'] {
+  --tint: var(--meter-tint);
+  --deep: var(--meter-deep);
+}
+
+[data-family='liter'] {
+  --tint: var(--liter-tint);
+  --deep: var(--liter-deep);
+}

@@ -1,0 +1,197 @@
+.ladder {
+  border-top: 2px solid var(--line-soft);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.chip {
+  min-width: 76px;
+  height: 76px;
+  padding: 0 16px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  color: var(--muted);
+}
+
+.unit[data-role='from'] .chip {
+  border: 3px solid var(--ink);
+  color: var(--ink);
+}
+
+.unit[data-role='to'] .chip {
+  background: var(--deep);
+  border: 3px solid var(--deep);
+  color: var(--surface);
+}
+
+.caption {
+  height: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.unit[data-role='to'] .caption {
+  color: var(--deep);
+}
+
+.step {
+  height: 76px;
+  min-width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.factor {
+  font-size: 15px;
+  line-height: 1;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.step[data-active='true'] .factor {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--deep);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--line-ladder);
+}
+
+.step[data-active='true'] .line {
+  color: var(--deep);
+}
+
+.bar {
+  width: 52px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.step[data-active='true'] .bar {
+  width: 72px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.arrowhead {
+  flex-shrink: 0;
+}
+
+@media (max-width: 719px) {
+  .ladder {
+    padding-top: 14px;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .row {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  /* Factor labels sit in a band above the chips, so a wide one such as
+     "×1 000" can spill sideways over empty space instead of the units. */
+  .unit {
+    gap: 4px;
+    padding-top: 20px;
+  }
+
+  .chip {
+    min-width: 42px;
+    height: 50px;
+    padding: 0 6px;
+    border-radius: 12px;
+    font-size: 22px;
+  }
+
+  .caption {
+    height: 16px;
+    font-size: 13px;
+  }
+
+  .step {
+    position: relative;
+    height: 70px;
+    min-width: 0;
+    flex: 1 1 0;
+    justify-content: flex-start;
+    padding-top: 39px;
+  }
+
+  .factor {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+  }
+
+  .step[data-active='true'] .factor {
+    font-size: 15px;
+  }
+
+  .line {
+    width: 100%;
+    padding: 0 3px;
+  }
+
+  .bar,
+  .step[data-active='true'] .bar {
+    width: auto;
+    flex: 1 1 0;
+  }
+
+  .step[data-active='true'] .bar {
+    height: 3px;
+  }
+}

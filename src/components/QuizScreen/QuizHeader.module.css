@@ -1,0 +1,114 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.exit {
+  height: var(--touch-min);
+  padding: 0 18px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--muted);
+  background: transparent;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.exit:hover {
+  color: var(--ink);
+  border-color: var(--muted);
+}
+
+.exit:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.badge {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 20px 6px 6px;
+  border-radius: var(--radius-pill);
+  background: var(--tint);
+  color: var(--deep);
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.symbol {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  background: var(--deep);
+  color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.kind {
+  font-weight: 400;
+}
+
+.progress {
+  margin: 0;
+  min-width: 128px;
+  text-align: right;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (max-width: 719px) {
+  .header {
+    gap: 10px;
+  }
+
+  .exit {
+    width: var(--touch-min);
+    padding: 0;
+    justify-content: center;
+  }
+
+  .exitText {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .badge {
+    gap: 8px;
+    padding: 5px 16px 5px 5px;
+    font-size: 17px;
+  }
+
+  .symbol {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .kind {
+    display: none;
+  }
+
+  .progress {
+    min-width: 0;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+}

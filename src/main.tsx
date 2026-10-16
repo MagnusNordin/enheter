@@ -3,6 +3,7 @@ import '@fontsource/atkinson-hyperlegible/700.css';
 import '@fontsource-variable/bricolage-grotesque/index.css';
 import './styles/tokens.css';
 import './styles/global.css';
+import './styles/families.css';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';

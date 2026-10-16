@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import styles from './App.module.css';
+import { QuizScreen } from './components/QuizScreen/QuizScreen.tsx';
 import { SettingsDialog } from './components/SettingsDialog/SettingsDialog.tsx';
 import { StartScreen } from './components/StartScreen/StartScreen.tsx';
 import type { Rng } from './domain/random.ts';
@@ -23,13 +24,28 @@ export default function App({ rng }: AppProps) {
   );
   const quiz = useQuiz({ rng, onRoundComplete });
 
-  if (quiz.state.screen !== 'start') {
-    // Temporary until the quiz and result screens land (phases 6–7).
+  if (quiz.state.screen === 'quiz') {
+    return (
+      <QuizScreen
+        state={quiz.state}
+        settings={settings}
+        onInput={quiz.setInput}
+        onCheck={quiz.check}
+        onNext={quiz.next}
+        onExit={quiz.exit}
+      />
+    );
+  }
+
+  if (quiz.state.screen === 'result') {
+    // Temporary until the result screen lands in phase 7.
     return (
       <main className={styles.placeholder}>
-        <h1 className={styles.placeholderTitle}>Övningen kommer snart</h1>
+        <h1 className={styles.placeholderTitle}>
+          {quiz.state.score}/{quiz.state.total}
+        </h1>
         <button type="button" className={styles.placeholderButton} onClick={quiz.exit}>
-          Avsluta
+          klar
         </button>
       </main>
     );

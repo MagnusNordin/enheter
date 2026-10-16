@@ -1,6 +1,13 @@
 import { questionRolls, sequenceRng } from '../test/rng.ts';
 import { FAMILIES, FAMILY_KEYS } from './families.ts';
-import { makeQuestion, MAX_VALUE, MIN_VALUE, sameQuestion, type Question } from './question.ts';
+import {
+  answerText,
+  makeQuestion,
+  MAX_VALUE,
+  MIN_VALUE,
+  sameQuestion,
+  type Question,
+} from './question.ts';
 import { mulberry32 } from './random.ts';
 
 const { gram, meter, liter } = FAMILIES;
@@ -148,5 +155,21 @@ describe('sameQuestion', () => {
       false,
     );
     expect(sameQuestion(base, { ...base, to: 'cl' })).toBe(false);
+  });
+});
+
+describe('answerText', () => {
+  it('formats the answer the Swedish way with its unit', () => {
+    const q = (answer: number, to: string): Question => ({
+      value: 0,
+      from: '',
+      to,
+      answer,
+      step: 0,
+      down: true,
+    });
+    expect(answerText(q(4, 'l'))).toBe('4 l');
+    expect(answerText(q(0.08, 'km'))).toBe('0,08 km');
+    expect(answerText(q(80000, 'mg'))).toBe('80\u00a0000 mg');
   });
 });

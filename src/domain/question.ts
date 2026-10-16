@@ -1,5 +1,5 @@
 import type { Family } from './families.ts';
-import { roundAnswer } from './numbers.ts';
+import { formatNumber, roundAnswer } from './numbers.ts';
 import { defaultRng, randomInt, type Rng } from './random.ts';
 
 export interface Question {
@@ -56,4 +56,9 @@ export function makeQuestion(
     question = rollQuestion(family, rng);
   }
   return question;
+}
+
+/** The right answer with its unit in Swedish format, e.g. "0,08 km". */
+export function answerText(question: Question): string {
+  return `${formatNumber(question.answer)} ${question.to}`;
 }

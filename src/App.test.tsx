@@ -4,6 +4,7 @@ import App from './App.tsx';
 import { mulberry32 } from './domain/random.ts';
 import { RESULTS_KEY } from './storage/results.ts';
 import { SETTINGS_KEY } from './storage/settings.ts';
+import { solveOnScreen } from './test/solve.ts';
 
 function renderApp() {
   return render(<App rng={mulberry32(1)} />);
@@ -60,5 +61,34 @@ describe('App', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Träning för olika enheter' }),
     ).toBeInTheDocument();
+  });
+
+  it('plays a whole round and remembers the score', async () => {
+    localStorage.setItem(
+      SETTINGS_KEY,
+      JSON.stringify({ questions: 3, showLadder: true, showFactors: true }),
+    );
+    renderApp();
+    await userEvent.click(screen.getByRole('button', { name: /^Öva på liter/ }));
+
+    for (const [i, right] of [true, false, true].entries()) {
+      expect(screen.getByText(`Tal ${i + 1} av 3`)).toBeInTheDocument();
+      const answer = solveOnScreen();
+      const input = screen.getByRole('textbox', { name: /^Svar i / });
+      expect(input).toHaveFocus();
+      await userEvent.type(input, String(right ? answer : answer * 10).replace('.', ','));
+      await userEvent.keyboard('{Enter}');
+      expect(screen.getByRole('status')).toHaveTextContent(right ? 'Rätt!' : /^Fel!/);
+      await userEvent.keyboard('{Enter}');
+    }
+
+    expect(screen.getByRole('heading', { level: 1, name: '2/3' })).toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button', { name: 'klar' }));
+
+    expect(screen.getByText('Bäst 2/3 · Senast 2/3')).toBeInTheDocument();
+    expect(JSON.parse(localStorage.getItem(RESULTS_KEY)!).liter.last).toMatchObject({
+      score: 2,
+      total: 3,
+    });
   });
 });

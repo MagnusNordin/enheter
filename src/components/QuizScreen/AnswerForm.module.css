@@ -1,0 +1,173 @@
+.form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1;
+}
+
+.prompt,
+.answerRow {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  white-space: nowrap;
+}
+
+.equals {
+  color: var(--muted);
+}
+
+.input {
+  width: 300px;
+  height: 124px;
+  padding: 0 20px;
+  border-radius: var(--radius-input);
+  border: 4px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 84px;
+  outline-offset: 4px;
+}
+
+.input[data-state='correct'] {
+  background: var(--ok-bg);
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.input[data-state='wrong'] {
+  background: var(--bad-bg);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.actions {
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 17px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.primary {
+  height: 72px;
+  padding: 0 48px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--surface);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.result .primary {
+  padding: 0 36px 0 40px;
+}
+
+.primary:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.primary:focus-visible {
+  outline: 4px solid var(--ink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 719px) {
+  .form {
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .question {
+    flex-direction: column;
+    gap: 14px;
+    font-size: 64px;
+  }
+
+  .prompt {
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .answerRow {
+    gap: 16px;
+  }
+
+  .input {
+    width: 200px;
+    height: 96px;
+    padding: 0 14px;
+    border-radius: var(--radius-input-mobile);
+    font-size: 60px;
+  }
+
+  .actions {
+    height: 176px;
+    align-items: stretch;
+  }
+
+  .check {
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .result {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .hint {
+    font-size: 16px;
+  }
+
+  .primary,
+  .result .primary {
+    height: 64px;
+    padding: 0 28px;
+    font-size: 26px;
+    gap: 10px;
+  }
+}

@@ -1,7 +1,4 @@
 .card {
-  --tint: var(--surface);
-  --deep: var(--ink);
-
   color: var(--ink);
   background: var(--tint);
   border: 0;
@@ -31,21 +28,6 @@
 .card:focus-visible {
   outline: 4px solid var(--ink);
   outline-offset: 4px;
-}
-
-.card[data-family='gram'] {
-  --tint: var(--gram-tint);
-  --deep: var(--gram-deep);
-}
-
-.card[data-family='meter'] {
-  --tint: var(--meter-tint);
-  --deep: var(--meter-deep);
-}
-
-.card[data-family='liter'] {
-  --tint: var(--liter-tint);
-  --deep: var(--liter-deep);
 }
 
 .kind {

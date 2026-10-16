@@ -1,0 +1,16 @@
+.screen {
+  max-width: 1024px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 32px 48px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 719px) {
+  .screen {
+    padding: 20px 24px 28px;
+    gap: 16px;
+  }
+}
