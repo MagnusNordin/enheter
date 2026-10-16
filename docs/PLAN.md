@@ -23,7 +23,7 @@ A Swedish practice app for converting metric units.
 | 30 questions per round                                                                             | `numbers.service.js`   |
 | Swedish copy: "Träning för olika enheter", "Tal X av Y", "rätta", "RÄTT!", "FEL!", "nästa", "klar" | templates              |
 
-The design keeps these too. Step factors per family: gram `×10, ×10, ×1000` (g→mg skips dg/cg, as in the old data), meter `×1000, ×10, ×10, ×10`, liter `×10, ×10, ×10`.
+The design keeps these too. Step factors per family: gram `×10, ×100, ×1000` (hg→g skips dag, g→mg skips dg/cg, as in the old data; the design prototype wrongly used ×10 for hg→g), meter `×1000, ×10, ×10, ×10`, liter `×10, ×10, ×10`.
 
 ### Old bugs, not carried over
 
