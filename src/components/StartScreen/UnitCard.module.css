@@ -1,0 +1,174 @@
+.card {
+  --tint: var(--surface);
+  --deep: var(--ink);
+
+  color: var(--ink);
+  background: var(--tint);
+  border: 0;
+  border-radius: var(--radius-card);
+  padding: 28px;
+  cursor: pointer;
+  text-align: left;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto 1fr auto;
+  grid-template-areas:
+    'kind'
+    'symbol'
+    'name'
+    'results'
+    'chips'
+    'go';
+  justify-items: start;
+  row-gap: 10px;
+  transition: transform 120ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card:focus-visible {
+  outline: 4px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.card[data-family='gram'] {
+  --tint: var(--gram-tint);
+  --deep: var(--gram-deep);
+}
+
+.card[data-family='meter'] {
+  --tint: var(--meter-tint);
+  --deep: var(--meter-deep);
+}
+
+.card[data-family='liter'] {
+  --tint: var(--liter-tint);
+  --deep: var(--liter-deep);
+}
+
+.kind {
+  grid-area: kind;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--deep);
+}
+
+.symbol {
+  grid-area: symbol;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 156px;
+  line-height: 0.9;
+  color: var(--deep);
+}
+
+.name {
+  grid-area: name;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.results {
+  grid-area: results;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.chips {
+  grid-area: chips;
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chip {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.go {
+  grid-area: go;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  background: var(--ink);
+  color: var(--surface);
+  border-radius: var(--radius-pill);
+  padding: 12px 20px;
+}
+
+@media (max-width: 719px) {
+  .card {
+    border-radius: var(--radius-card-mobile);
+    padding: 18px 18px 18px 22px;
+    grid-template-columns: 82px auto minmax(0, 1fr) 62px;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'symbol name kind go'
+      'symbol chips chips go'
+      'symbol results results go';
+    align-content: center;
+    align-items: center;
+    column-gap: 0;
+    row-gap: 8px;
+  }
+
+  .symbol {
+    font-size: 84px;
+    justify-self: center;
+    margin-right: 18px;
+  }
+
+  .name {
+    font-size: 24px;
+    align-self: baseline;
+  }
+
+  .kind {
+    font-size: 14px;
+    align-self: baseline;
+    margin-left: 8px;
+  }
+
+  .results {
+    font-size: 14px;
+  }
+
+  .chips {
+    align-self: auto;
+  }
+
+  .chip {
+    font-size: 14px;
+    padding: 4px 7px;
+    border-radius: 8px;
+  }
+
+  .go {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    justify-self: end;
+  }
+
+  .goText {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+}
