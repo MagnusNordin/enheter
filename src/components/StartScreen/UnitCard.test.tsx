@@ -25,7 +25,7 @@ describe('resultsText', () => {
 describe('UnitCard', () => {
   it('shows the family with its units', () => {
     render(<UnitCard family={FAMILIES.meter} results={none} onPick={() => {}} />);
-    const card = screen.getByRole('button', { name: 'Öva på meter: km, m, dm, cm, mm' });
+    const card = screen.getByRole('button', { name: 'Längd meter km m dm cm mm Öva' });
     expect(card).toHaveAttribute('data-family', 'meter');
     expect(card).toHaveTextContent('Längd');
     expect(card).toHaveTextContent('meter');
@@ -63,12 +63,13 @@ describe('UnitCard', () => {
   it('shows no results line before any round', () => {
     render(<UnitCard family={FAMILIES.gram} results={none} onPick={() => {}} />);
     expect(screen.queryByText(/Bäst/)).not.toBeInTheDocument();
-    expect(screen.getByRole('button')).not.toHaveAttribute('aria-describedby');
   });
 
-  it('shows and describes the card with stored results', () => {
+  it('shows stored results and includes them in the name', () => {
     render(<UnitCard family={FAMILIES.gram} results={some} onPick={() => {}} />);
     expect(screen.getByText('Bäst 28/30 · Senast 24/30')).toBeInTheDocument();
-    expect(screen.getByRole('button')).toHaveAccessibleDescription(resultsText(some)!);
+    expect(screen.getByRole('button')).toHaveAccessibleName(
+      `Vikt gram ${resultsText(some)} kg hg g mg Öva`,
+    );
   });
 });

@@ -1,4 +1,4 @@
-import { convert } from './solve.ts';
+import { convert } from './convert.ts';
 
 describe('convert (test helper)', () => {
   it('converts down and up within a family', () => {

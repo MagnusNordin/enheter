@@ -54,7 +54,7 @@ describe('App', () => {
 
   it('starts a round from a card and can leave it', async () => {
     renderApp();
-    await userEvent.click(screen.getByRole('button', { name: /^Öva på liter/ }));
+    await userEvent.click(screen.getByRole('button', { name: /\bliter\b/ }));
     expect(screen.queryByRole('heading', { name: 'Träning för olika enheter' })).toBeNull();
 
     await userEvent.click(screen.getByRole('button', { name: 'Avsluta' }));
@@ -69,7 +69,7 @@ describe('App', () => {
       JSON.stringify({ questions: 3, showLadder: true, showFactors: true }),
     );
     renderApp();
-    await userEvent.click(screen.getByRole('button', { name: /^Öva på liter/ }));
+    await userEvent.click(screen.getByRole('button', { name: /\bliter\b/ }));
 
     for (const [i, right] of [true, false, true].entries()) {
       expect(screen.getByText(`Tal ${i + 1} av 3`)).toBeInTheDocument();

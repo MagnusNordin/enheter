@@ -27,13 +27,13 @@ describe('StartScreen', () => {
 
   it('shows gram, meter and liter in order', () => {
     setup();
-    const cards = screen.getAllByRole('button', { name: /^Öva på/ });
+    const cards = screen.getAllByRole('button', { name: /Öva$/ });
     expect(cards.map((c) => c.getAttribute('data-family'))).toEqual(['gram', 'meter', 'liter']);
   });
 
   it.each(['gram', 'meter', 'liter'] as const)('starts %s when its card is picked', async (key) => {
     const { onPick } = setup();
-    await userEvent.click(screen.getByRole('button', { name: new RegExp(`^Öva på ${key}`) }));
+    await userEvent.click(screen.getByRole('button', { name: new RegExp(`\\b${key}\\b`) }));
     expect(onPick).toHaveBeenCalledWith(key);
   });
 
@@ -51,7 +51,7 @@ describe('StartScreen', () => {
       at: '2026-10-16T12:00:00.000Z',
     });
     setup({ results });
-    const liter = screen.getByRole('button', { name: /^Öva på liter/ });
+    const liter = screen.getByRole('button', { name: /\bliter\b/ });
     expect(within(liter).getByText('Bäst 2/3 · Senast 2/3')).toBeInTheDocument();
     expect(screen.getAllByText(/Bäst/)).toHaveLength(1);
   });
