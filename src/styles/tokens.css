@@ -1,0 +1,35 @@
+/* Design tokens from the Claude Design canvas "Enheter". */
+:root {
+  --bg: #f6f4ee;
+  --surface: #ffffff;
+  --ink: #17203a;
+  --muted: #4a5168;
+  --muted-strong: #5a6178;
+  --line: #d9d6cc;
+  --line-soft: #e4e1d8;
+  --line-ladder: #c9c5b8;
+  --ruler: #f2c230;
+
+  --ok: #1e7f4f;
+  --ok-bg: #e2f4ea;
+  --bad: #b5321f;
+  --bad-bg: #fce3dd;
+
+  --gram-tint: #fce6d4;
+  --gram-deep: #8a420e;
+  --meter-tint: #dce8fa;
+  --meter-deep: #1d4c91;
+  --liter-tint: #d3f1ea;
+  --liter-deep: #0b6553;
+
+  --font-body: 'Atkinson Hyperlegible', Verdana, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Avenir Next', system-ui, sans-serif;
+
+  --radius-card: 28px;
+  --radius-card-mobile: 24px;
+  --radius-input: 24px;
+  --radius-input-mobile: 20px;
+  --radius-pill: 999px;
+
+  --touch-min: 44px;
+}

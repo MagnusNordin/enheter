@@ -1,0 +1,9 @@
+import { expect, test } from '@playwright/test';
+
+test('start page loads', async ({ page }) => {
+  await page.goto('./');
+  await expect(page).toHaveTitle('Enheter');
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'Träning för olika enheter' }),
+  ).toBeVisible();
+});

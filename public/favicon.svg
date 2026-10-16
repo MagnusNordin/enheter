@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#F2C230"/>
+  <g stroke="#17203A" stroke-width="4" stroke-linecap="round">
+    <path d="M12 8v22M22 8v12M32 8v22M42 8v12M52 8v22"/>
+  </g>
+  <text x="32" y="56" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="22" fill="#17203A">m</text>
+</svg>
