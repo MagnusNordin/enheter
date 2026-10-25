@@ -16,7 +16,7 @@ describe('App', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Träning för olika enheter' }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/^30 tal per runda/)).toBeInTheDocument();
+    expect(screen.getByText(/^15 tal per runda/)).toBeInTheDocument();
   });
 
   it('uses stored settings and results', () => {
@@ -48,8 +48,8 @@ describe('App', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Klar' }));
 
     expect(dialog).not.toHaveAttribute('open');
-    expect(screen.getByText(/^29 tal per runda/)).toBeInTheDocument();
-    expect(JSON.parse(localStorage.getItem(SETTINGS_KEY)!)).toMatchObject({ questions: 29 });
+    expect(screen.getByText(/^14 tal per runda/)).toBeInTheDocument();
+    expect(JSON.parse(localStorage.getItem(SETTINGS_KEY)!)).toMatchObject({ questions: 14 });
   });
 
   it('starts a round from a card and can leave it', async () => {

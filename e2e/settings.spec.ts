@@ -14,13 +14,13 @@ test('changes the round length with − and + and remembers it', async ({ page }
   await dialog(page).getByRole('button', { name: 'Färre tal' }).click();
   await dialog(page).getByRole('button', { name: 'Färre tal' }).click();
   await dialog(page).getByRole('button', { name: 'Fler tal' }).click();
-  await expect(dialog(page).getByRole('textbox', { name: 'Tal per runda' })).toHaveValue('29');
+  await expect(dialog(page).getByRole('textbox', { name: 'Tal per runda' })).toHaveValue('14');
   await dialog(page).getByRole('button', { name: 'Klar' }).click();
 
   await page.reload();
-  await expect(page.getByText('29 tal per runda.', { exact: false })).toBeVisible();
+  await expect(page.getByText('14 tal per runda.', { exact: false })).toBeVisible();
   await card(page, 'liter').click();
-  await expect(page.getByText('Tal 1 av 29')).toBeVisible();
+  await expect(page.getByText('Tal 1 av 14')).toBeVisible();
 });
 
 test('clamps a typed round length', async ({ page }) => {

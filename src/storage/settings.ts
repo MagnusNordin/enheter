@@ -14,7 +14,7 @@ export const MIN_QUESTIONS = 3;
 export const MAX_QUESTIONS = 60;
 
 export const DEFAULT_SETTINGS: Readonly<Settings> = {
-  questions: 30,
+  questions: 15,
   showLadder: true,
   showFactors: true,
 };

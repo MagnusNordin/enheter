@@ -36,7 +36,7 @@ describe('useSettings', () => {
     act(() => result.current.updateSettings({ showLadder: false }));
     act(() => result.current.updateSettings({ showFactors: false }));
     expect(result.current.settings).toEqual({
-      questions: 30,
+      questions: 15,
       showLadder: false,
       showFactors: false,
     });

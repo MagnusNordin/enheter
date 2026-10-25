@@ -10,8 +10,8 @@ import {
 } from './settings.ts';
 
 describe('DEFAULT_SETTINGS', () => {
-  it('matches the design: 30 questions, ladder and factors shown', () => {
-    expect(DEFAULT_SETTINGS).toEqual({ questions: 30, showLadder: true, showFactors: true });
+  it('matches the design: 15 questions, ladder and factors shown', () => {
+    expect(DEFAULT_SETTINGS).toEqual({ questions: 15, showLadder: true, showFactors: true });
     expect([MIN_QUESTIONS, MAX_QUESTIONS]).toEqual([3, 60]);
   });
 });
@@ -47,7 +47,7 @@ describe('normalizeSettings', () => {
 
   it('replaces only the invalid fields', () => {
     expect(normalizeSettings({ questions: '10', showLadder: false, showFactors: 'yes' })).toEqual({
-      questions: 30,
+      questions: 15,
       showLadder: false,
       showFactors: true,
     });
@@ -59,8 +59,8 @@ describe('normalizeSettings', () => {
   });
 
   it('rejects non-finite numbers', () => {
-    expect(normalizeSettings({ questions: Number.NaN }).questions).toBe(30);
-    expect(normalizeSettings({ questions: Infinity }).questions).toBe(30);
+    expect(normalizeSettings({ questions: Number.NaN }).questions).toBe(15);
+    expect(normalizeSettings({ questions: Infinity }).questions).toBe(15);
   });
 
   it('drops unknown fields', () => {

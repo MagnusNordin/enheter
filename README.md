@@ -15,7 +15,7 @@ A Swedish practice app for converting metric units: pick gram, meter or liter, a
 Also:
 
 - **Enhetsstegen** (the unit ladder) under each question shows all units in the family, which one you convert _från_ and _till_, and the factor for that step.
-- **Inställningar** (the button on the start screen): questions per round (3–60, default 30), and switches for the ladder and its factors.
+- **Inställningar** (the button on the start screen): questions per round (3–60, default 15), and switches for the ladder and its factors.
 - **Results are remembered** on each start card: `Bäst 28/30 · Senast 24/30`. Settings and results are stored in the browser's `localStorage` only; the app has no server and no tracking.
 
 Designed for desktop (1024×768) and phone (390×844) in Claude Design; tablets get the desktop layout scaled to fit.

@@ -10,7 +10,7 @@ A Swedish practice app for converting metric units.
    - **gram** (Vikt): kg, hg, g, mg
    - **meter** (Längd): km, m, dm, cm, mm
    - **liter** (Volym): l, dl, cl, ml
-2. **Quiz**: a round of N questions (default 30), for example `40 dl = [ ] l`. The user types an answer and presses **rätta**. The app shows **RÄTT!** or **FEL!** and, when wrong, the correct answer. Then **nästa**, or **klar** after the last question.
+2. **Quiz**: a round of N questions (default 15), for example `40 dl = [ ] l`. The user types an answer and presses **rätta**. The app shows **RÄTT!** or **FEL!** and, when wrong, the correct answer. Then **nästa**, or **klar** after the last question.
 3. **Result**: score `24/30`, a row of squares (one per question, green = right, red outline = wrong), and **klar** to go back to start.
 
 ### Rules from the old code, kept
