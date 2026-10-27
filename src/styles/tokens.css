@@ -22,8 +22,8 @@
   --liter-tint: #d3f1ea;
   --liter-deep: #0b6553;
 
-  --font-body: 'Atkinson Hyperlegible', Verdana, sans-serif;
-  --font-display: 'Bricolage Grotesque Variable', 'Avenir Next', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
 
   --radius-card: 28px;
   --radius-card-mobile: 24px;

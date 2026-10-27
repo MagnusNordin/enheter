@@ -1,6 +1,7 @@
-import '@fontsource/atkinson-hyperlegible/400.css';
-import '@fontsource/atkinson-hyperlegible/700.css';
-import '@fontsource-variable/bricolage-grotesque/index.css';
+import '@fontsource/anton/400.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/700.css';
 import './styles/tokens.css';
 import './styles/global.css';
 import './styles/families.css';

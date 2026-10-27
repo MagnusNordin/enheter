@@ -14,6 +14,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
+  /* Anton only has weight 400; don't fake-bold it */
+  font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -46,7 +46,7 @@ The design keeps these too. Step factors per family: gram `×10, ×100, ×1000` 
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | Build       | Vite 7 + React 19 + TypeScript (strict)                                                                                       |
 | Styling     | CSS Modules + one `tokens.css` with the design's colors, radii and type scale                                                 |
-| Fonts       | Atkinson Hyperlegible (body) and Bricolage Grotesque (display), self-hosted via `@fontsource` packages, so no Google CDN call |
+| Fonts       | DM Sans (body) and Anton (display), matching the Cutie Poppers shop, self-hosted via `@fontsource` packages, so no Google CDN call |
 | State       | `useReducer` for the quiz; no router, one `screen` field (`start` / `quiz` / `result`)                                        |
 | Unit tests  | Vitest + jsdom + React Testing Library + `@testing-library/user-event`, coverage with `@vitest/coverage-v8`                   |
 | E2E         | Playwright, Chromium desktop (1024×768) and mobile (390×844)                                                                  |

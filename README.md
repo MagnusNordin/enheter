@@ -79,7 +79,7 @@ Every push to `main` runs CI (lint, format, typecheck, unit tests with coverage,
 
 ## Stack
 
-Vite, React, TypeScript, CSS Modules, Vitest, React Testing Library, axe-core, Playwright. Fonts (Atkinson Hyperlegible and Bricolage Grotesque) are self-hosted via Fontsource.
+Vite, React, TypeScript, CSS Modules, Vitest, React Testing Library, axe-core, Playwright. Fonts (DM Sans and Anton, matching the Cutie Poppers shop) are self-hosted via Fontsource.
 
 This replaces an older AngularJS version of the app.
 
